@@ -1,0 +1,24 @@
+#include<iostream>
+#include<fstream>
+using namespace std;
+
+class Person
+{
+public:
+	char name[40];
+	int age;
+};
+
+int main()
+{
+	ofstream a;
+
+	a.open("abc.txt", ios::out | ios::binary);
+
+	Person p = { "zhansan",18 };
+	a.write((const char*)&p, sizeof(Person));
+
+	a.close();
+
+	return 0;
+}
